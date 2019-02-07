@@ -9,18 +9,18 @@ Movie Database with add, delete, and search (CSIS 3275)
 
 ## R & R
 
-* **main role for each object:**
- 	- administrator/user manager (Daniel)
- 	- movie database administrator (Ankit)
- 	- general user (Twinkle)
-* **documentation and printing:** everybody
-* **meeting room management and meeting minutes:** everybody
-* **development of components:**
- 	- framework, menu, UX/UI design (Daniel)
- 	- login/user registration (Twinkle)
- 	- update movies: movie data with SQL (Ankit)
- 	- admin role management (Daniel)
- 	- test with Junit and Selenium (everybody)
+* **Main role for each object:**
+ 	- Administrator/user manager (Daniel)
+ 	- Movie database administrator (Ankit)
+ 	- General user (Twinkle)
+* **Documentation and Printing:** everybody
+* **Meeting room management and meeting minutes:** everybody
+* **Development of components:**
+ 	- Framework, Menu, UX/UI design (Daniel)
+ 	- Login/User registration (Twinkle)
+ 	- Update movies: movie data with SQL (Ankit)
+ 	- Admin role management (Daniel)
+ 	- Test with Junit and Selenium (everybody)
 
 
 ##	Introduction of MIS
