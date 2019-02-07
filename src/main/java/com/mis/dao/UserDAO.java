@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.mis.model.User;
 
+
+// This is for interface of Database
 public interface UserDAO {
 
 	public void addUser(User user);
