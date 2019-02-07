@@ -69,6 +69,26 @@ public class UserController {
 		return model;
 	}
 
+	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+	public ModelAndView saveUser(@RequestParam("email")String email,
+								@RequestParam("password")String password,
+								@RequestParam("name")String name,
+								@RequestParam("phone")String phone
+								) 
+	{
+		String role = "Guest";
+		String msg = "Registered successfully";
+		User user = new User(name, email, password, phone, role);
+		
+//		if (user.getId() == 0) { 
+			userService.addUser(user);
+			
+//		} else {
+//			userService.updateUser(user);  // later
+//		}
+//		return new ModelAndView("redirect:/");
+		return new ModelAndView("result", "output", msg);
+	}
 
 	
 		
