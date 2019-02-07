@@ -1,11 +1,11 @@
-package com.mdb.model;
+package com.mis.model;
 
 //for inheritance and polymorphism
 
 public abstract class Users 
 {
+	private int id;
 	private String name;
-	private String id;
 	private String password;
 	private String email;
 	private String phone;
@@ -19,20 +19,21 @@ public abstract class Users
 	}
 		
 	// methods for encapsulation
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getPassword() {

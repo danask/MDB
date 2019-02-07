@@ -1,4 +1,4 @@
-package com.mdb.model;
+package com.mis.model;
 
 import java.text.SimpleDateFormat;
 

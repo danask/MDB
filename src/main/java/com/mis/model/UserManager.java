@@ -1,4 +1,4 @@
-package com.mdb.model;
+package com.mis.model;
 
 public class UserManager  extends Users 
 									implements UserFunction

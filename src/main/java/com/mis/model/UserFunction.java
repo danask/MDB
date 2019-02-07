@@ -1,4 +1,4 @@
-package com.mdb.model;
+package com.mis.model;
 
 // for interface which should implement in the children class
 public interface UserFunction 

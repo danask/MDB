@@ -1,4 +1,4 @@
-package com.mdb.model;
+package com.mis.model;
 
 public class Guest extends Users implements UserFunction
 {
