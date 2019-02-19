@@ -2,8 +2,7 @@
 Movie Database with add, delete, and search (CSIS 3275)
 
 ##	Team members
-
--	Seongku (Daniel) Ahn as scrum master and programmer (Leader)
+-	Seongku (Daniel) Ahn as scrum master and a lead programmer
 -	Ankit Chutani as a developer
 -	Twinklepreet Kaur as a developer
 
