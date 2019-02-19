@@ -4,21 +4,21 @@ Movie Database with add, delete, and search (CSIS 3275)
 ##	Team members
 
 -	Seongku (Daniel) Ahn as scrum master and programmer (Leader)
--	Ankit Chutani as DBA and programmer
--	Twinklepreet Kaur as programmer
+-	Ankit Chutani as a developer
+-	Twinklepreet Kaur as a developer
 
 ## R & R
 
 * **Main role for each object:**
- 	- Administrator/user manager (Daniel)
- 	- Movie database administrator (Ankit)
- 	- General user (Twinkle)
+ 	- Administrator (Role management) and user login function (Daniel)
+ 	- Movie database management function (Ankit)
+ 	- User management function (Twinkle)
 * **Documentation and Printing:** everybody
 * **Meeting room management and meeting minutes:** everybody
 * **Development of components:**
  	- Framework, Menu, UX/UI design (Daniel)
  	- Login/User registration (Twinkle)
- 	- Update movies: movie data with SQL (Ankit)
+ 	- Update movies information: movie data (Ankit)
  	- Admin role management (Daniel)
  	- Test with Junit and Selenium (everybody)
 
