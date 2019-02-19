@@ -25,7 +25,7 @@
 		        <a class="nav-link" href="/">Login</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="addUser">User Registraton</a>
+		        <a class="nav-link" href="addUser">User Registration</a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link disabled" href="#">Disabled</a>

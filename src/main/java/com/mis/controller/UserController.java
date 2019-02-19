@@ -50,13 +50,15 @@ public class UserController {
 		
 		User user = userService.getUserByEmailPwd(email, password);
 		
-		if(!user.getEmail().equalsIgnoreCase(null))
+		if(user == null)
+		{
+			msg = "Invalid credentials";
+		}
+		else //if(!user.getEmail().equalsIgnoreCase(null))
 		{
 			msg = "Welcome " + user.getEmail() + "!";
 		}
-		else {
-			msg = "Invalid credentials";
-		}
+
 
 		return new ModelAndView("result", "output", msg);
 	}	

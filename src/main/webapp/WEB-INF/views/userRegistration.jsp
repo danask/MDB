@@ -29,7 +29,11 @@
 		        <a class="nav-link" href="/">Login</a>
 		      </li>
 		      <li class="nav-item">
+<<<<<<< Updated upstream
 		        <a class="nav-link" href="addUser">User Registraton</a>
+=======
+		        <a class="nav-link" href="addUser">User Registration</a>
+>>>>>>> Stashed changes
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link disabled" href="#">Disabled</a>
@@ -49,6 +53,7 @@
 	         <!-- <form action="saveUser" th:action="@{/saveUser}" th:object="${user}" method="post"> -->
                <div class="form-group">
 	                <label for="name">User Name:</label>
+<<<<<<< Updated upstream
 	                <input type="text" class="form-control" id="name" placeholder="Enter username" name="name">
 	            </div>
 	            <div class="form-group">
@@ -62,12 +67,34 @@
 	            <div class="form-group">
 	                <label for="pwd">Phone Number:</label>
 	                <input type="password" class="form-control" id="pwd" placeholder="Enter telephone number" name="phone">
+=======
+	                <input type="text" class="form-control" id="name" placeholder="Enter username" name="name" required>
+	            </div>
+	            <div class="form-group">
+	                <label for="pwd">Password:</label>
+	                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
+	            </div>
+	            <div class="form-group">
+	                <label for="name">Email Address (ID):</label>
+	                <input type="text" class="form-control" id="name" placeholder="Enter email address" name="email" required>
+	            </div>
+	            <div class="form-group">
+	                <label for="pwd">Phone Number:</label>
+	                <input type="text" class="form-control" id="pwd" placeholder="Enter telephone number" name="phone" required>
+>>>>>>> Stashed changes
 	            </div>
 	            <div class="form-group">
 	                <label for="name">Role:</label>
 	                <input type="text" class="form-control" id="name" placeholder="Guest" name="role" disabled>
+<<<<<<< Updated upstream
 	            </div>            	            
 	            <button id="confirm_user" type="submit" class="btn btn-primary">Save</button>
+=======
+	            </div>    
+	            <div align="center">       	            
+	            	<button id="confirm_user" type="submit" class="btn btn-primary">Save</button>
+	            </div> 
+>>>>>>> Stashed changes
 	        </form>
 	    </div>
 

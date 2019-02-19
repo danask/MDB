@@ -33,7 +33,11 @@
 		        <a class="nav-link" href="/">Login</a>
 		      </li>
 		      <li class="nav-item">
+<<<<<<< Updated upstream
 		        <a class="nav-link" href="addUser">User Registraton</a>
+=======
+		        <a class="nav-link" href="addUser">User Registration</a>
+>>>>>>> Stashed changes
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link disabled" href="#">Disabled</a>
