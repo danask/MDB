@@ -1,12 +1,47 @@
 package com.mis.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "MOVIE")
 public class Movie 
 {
-	private String movieId;
+	private static final long serialVersionUID = -3465813074586302847L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column
 	private String movieTitle;
+	@Column
 	private String movieArtist;
+	@Column
 	private int year;
+	@Column
 	private String description;
+	
+	
+	public Movie() {};
+	
+	public Movie(String movieTitle, String movieArtist, int year, String description) {
+		this.movieTitle = movieTitle;
+		this.movieArtist = movieArtist;
+		this.year = year;
+		this.description = description;
+	}
+
+	public Movie(int id, String movieTitle, String movieArtist, int year, String description) {
+		this.id = id;
+		this.movieTitle = movieTitle;
+		this.movieArtist = movieArtist;
+		this.year = year;
+		this.description = description;
+	}
 	
 	public Movie(String movieTitle) {
 		super();
@@ -14,11 +49,11 @@ public class Movie
 		System.out.println("Movie " + movieTitle + "has been created.");
 	}
 	
-	public String getMovieId() {
-		return movieId;
+	public int getId() {
+		return id;
 	}
-	public void setMovieId(String movieId) {
-		this.movieId = movieId;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getMovieTitle() {
 		return movieTitle;
@@ -47,7 +82,7 @@ public class Movie
 	
 	@Override
 	public String toString() {
-		return "Movie [movieId=" + movieId + ", movieTitle=" + movieTitle + ", movieArtist=" + movieArtist + ", year="
+		return "Movie [movieId=" + id + ", movieTitle=" + movieTitle + ", movieArtist=" + movieArtist + ", year="
 				+ year + ", description=" + description + "]";
 	}
 

@@ -1,14 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>	    
-	    <title>User Login</title>
+	    <title>Movie Login</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	    <style>
+	    	#description {
+			  width: 100%;
+			  height: 5em;
+			  padding: 12px 20px;
+
+			}
 			li:nth-of-type(5){margin-left: 22em;}
 		</style>
 	
@@ -49,50 +56,41 @@
 
 		<br/><br/>
 	    <div class="container">
-	        <h3 id="form_header" align="center">User Registration</h3>
+	        <h3 id="form_header" align="center">Movie Registration</h3>
 	        <div>&nbsp;</div>
 	
-        	<c:url var="saveUserUrl" value="/saveUser" />
- 	        <form id="user_form" action="${saveUserUrl}" method="POST">
-	     <!--    <form:form action="saveUser" method="post" modelAttribute="user">
-	         <div class="form-group"><label for="name">User Name:</label>
-	        <form:input path="name" /> 
-	        </div>-->
-
-			   <input type="hidden" name="id" value='${user.id}'/>
+	        <c:url var="saveMovieUrl" value="/saveMovie" />
+	        <form id="movie_form" action="${saveMovieUrl}" method="POST">
+	        <!-- <form:form action="saveMovie" method="post" modelAttribute="movie"> -->
+	         <!-- <form action="saveMovie" th:action="@{/saveMovie}" th:object="${movie}" method="post"> -->
+	         
+	           <input type="hidden" name="id" value='${movie.id}'/>
                <div class="form-group">
-	                <label for="name">User Name:</label>
-	                <input type="text" class="form-control" id="name" placeholder="Enter username" name="name" 
-	                value='${user.name}' required/>
+	                <label for="movieTitle">Movie Title:</label>
+	                <input type="text" class="form-control" id="movieTitle" placeholder="Enter movie title" 
+	                name="movieTitle" value='${movie.movieTitle}' required/>
 	            </div>
 	            <div class="form-group">
-	                <label for="pwd">Password:</label>
-	                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" 
-	                value='${user.password}'required>
+	                <label for="movieArtist">Artist:</label>
+	                <input type="text" class="form-control" id="movieArtist" placeholder="Enter the name of artist" 
+	                name="movieArtist" value='${movie.movieArtist}' required/>
 	            </div>
 	            <div class="form-group">
-	                <label for="name">Email Address (ID):</label>
-	                <input type="text" class="form-control" id="email" placeholder="Enter email address" name="email" 
-	                value='${user.email}'required>
+	                <label for="year">Year:</label>
+	                <input type="number" class="form-control" id="year" placeholder="Enter released year" 
+	                name="year" value='${movie.year}' required min="1950" max="2050">
 	            </div>
 	            <div class="form-group">
-	                <label for="pwd">Phone Number:</label>
-	                <input type="text" class="form-control" id="phone" placeholder="Enter telephone number" name="phone" 
-	                value='${user.phone}'required>
+	                <label for="description">Description:</label>
+	                <input type="textarea" class="form-control" id="description" placeholder="Enter description" 
+	                name="description" value='${movie.description}' required/>
 	            </div>
-	            <div class="form-group">
-	                <label for="name">Role:</label>
-	                <input type="text" class="form-control" id="role" placeholder="Guest" name="role" 
-	                value='${user.role}'disabled>
-	            </div>  
-	            
-	            
-	              
+	         
 	            <div align="center">       	            
-	            	<button id="confirm_user" type="submit" class="btn btn-dark">Save</button>
-	            </div>  
-	        <!-- </form:form> -->
+	            	<button id="confirm_movie" type="submit" class="btn btn-dark">Save</button>
+	            </div> 
+	        </form>
 	    </div>
-	         <!-- <form action="saveUser" th:action="@{/saveUser}" th:object="${user}" method="post"> -->
-	</body>
+
+</body>
 </html>

@@ -5,18 +5,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login</title>
+<title>Movie Management</title>
 </head>
 <body>
 
 	<head>	    
-	    <title>User Login</title>
+	    <title>Movie Login</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	    <style>
-	    	li:nth-of-type(5){margin-left: 22em;}
+	    	#list {
+			    margin-left: 2em;
+			    margin-right: 2em;
+			}
+			li:nth-of-type(5){margin-left: 22em;}
 		</style>
-	</head>
 	
 	<body>
 		
@@ -29,7 +32,7 @@
 		    <ul class="navbar-nav">
 <!-- 		      <li class="nav-item active">
 		        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-		      </li>
+		      </li> -->
 			  <li class="nav-item">
 		        <a class="nav-link" href="listMovie">Movie List</a>
 		      </li>
@@ -47,36 +50,46 @@
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="/">Log out</a>
-		      </li> -->
+		      </li>
 		    </ul>
 		  </div>
 		</nav>
-	
+
 		<br/><br/>
-	    <div class="container">
-	        <h3 id="form_header" align="center">Login</h3>
-	        <div>&nbsp;</div>
-	
-	        <!-- User input form to validate a user -->
-	        <c:url var="loginUrl" value="/login" />
-	        <form id="user_form" action="${loginUrl}" method="POST">
-	            <div class="form-group">
-	                <label for="name">User email:</label>
-	                <input type="text" class="form-control" id="name" placeholder="Enter email" name="email" required>
-	            </div>
-	            <div class="form-group">
-	                <label for="pwd">Password:</label>
-	                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required>
-	            </div>
-	            <div align="center"> 
-	            	<button id="confirm_user" type="submit" class="btn btn-dark">Login</button>
-	            </div>
-	        </form>
-	   	    <div align="center"> 
-	        	<p>	Are you new here? Create a new account. <a href="addUser">here</a></p>
-	        </div>
-	    </div>
-
-
-	</body>
+		<div id="list">
+			<div class="containter">
+				
+				<h3 id="form_header" align="center">Movie List</h3>
+		        <div>&nbsp;</div>		
+		        <!-- h2>
+		            <a href="movieManagement">Movie List</a>
+		        </h2-->
+		        
+		        <c:if test="${!empty listMovie }">
+			        <table class="table table-striped">
+			 
+			 			<th>ID</th>
+			            <th>Title</th>
+			            <th>Aritist</th>
+			            <th>Released Year</th>
+			            <th>Description</th>
+			            <th></th>
+			             
+			            <c:forEach var="movie" items="${listMovie}">
+			                <tr>
+			                    <td>${movie.id}</td>
+			                    <td>${movie.movieTitle}</td>
+			                    <td>${movie.movieArtist}</td>
+			                    <td>${movie.year}</td>
+			                    <td>${movie.description}</td>
+		 						<td><a href="editMovie?id=${movie.id}">Edit</a>&nbsp;&nbsp;
+			                      <a href="deleteMovie?id=${movie.id}">Delete</a></td>
+			                </tr>
+			            </c:forEach>
+			        </table>
+			    </c:if>
+		    </div>
+		</div>
+	</div>
+</body>
 </html>
