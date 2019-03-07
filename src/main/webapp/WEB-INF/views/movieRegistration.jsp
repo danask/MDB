@@ -16,7 +16,7 @@
 			  padding: 12px 20px;
 
 			}
-			li:nth-of-type(5){margin-left: 22em;}
+	    	li:nth-of-type(4){margin-left: 25em;}
 		</style>
 	
 	<body>
@@ -35,17 +35,18 @@
 		        <a class="nav-link" href="listMovie">Movie List</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="addMovie">Movie Registration</a>
+		        <a class="nav-link" href="addMovie">Movie Database</a>
 		      </li>     
 		      <li class="nav-item">
 		        <a class="nav-link" href="addUser">User Registration</a>
 		      </li>	
-		      <li class="nav-item">
-		        <a class="nav-link" href="listUser">User List</a>
-		      </li>	 		       		        
+		       		        
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">Admin</a>
 		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="listUser">Users</a>
+		      </li>	 
 		      <li class="nav-item">
 		        <a class="nav-link" href="/">Log out</a>
 		      </li>
@@ -56,7 +57,7 @@
 
 		<br/><br/>
 	    <div class="container">
-	        <h3 id="form_header" align="center">Movie Registration</h3>
+	        <h3 id="form_header" align="center">Movie Database</h3>
 	        <div>&nbsp;</div>
 	
 	        <c:url var="saveMovieUrl" value="/saveMovie" />

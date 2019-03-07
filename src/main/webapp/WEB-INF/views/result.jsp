@@ -46,7 +46,7 @@
 	
 		<div class="container">
 			<h3 id="output_header" class="text-success"><%= request.getAttribute("output") %></h3>
-			<p>	Go back to Home <a href="/">here</a></p>
+			<p>	Go back to Home <a href="/home">here</a></p>
 		</div>	    
 	</body>
 </html>
