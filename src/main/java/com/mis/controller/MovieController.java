@@ -29,6 +29,7 @@ public class MovieController {
 	@Autowired
 	private MovieService movieService;
 
+	//This is to list all the movies from database -> do we need to keep this?
 	@RequestMapping(value = "/")
 	public ModelAndView searchMovie(ModelAndView model) throws IOException 
 	{
@@ -40,6 +41,7 @@ public class MovieController {
 		return model;
 	}	
 	
+        //This is to list all the movies from database
 	@RequestMapping(value = "/listMovie")
 	public ModelAndView listMovie(ModelAndView model) throws IOException 
 	{
@@ -51,6 +53,7 @@ public class MovieController {
 		return model;
 	}
 	
+	//This is for the registration page
 	@RequestMapping(value = "/addMovie", method = RequestMethod.GET)
 	public ModelAndView addMovie(ModelAndView model) {
 		Movie movie = new Movie();
@@ -60,6 +63,7 @@ public class MovieController {
 	}
 
 
+	//registration submision
 	@RequestMapping(value = "/saveMovie", method = RequestMethod.POST)
 	public ModelAndView saveMovie(@RequestParam("id")String id,
 								@RequestParam("movieTitle")String movieTitle,
@@ -84,6 +88,7 @@ public class MovieController {
 		}
 	}
 	
+	//deleting and editing data
     @RequestMapping(value = "/deleteMovie", method = RequestMethod.GET)
     public ModelAndView deleteMovie(HttpServletRequest request) 
     {
