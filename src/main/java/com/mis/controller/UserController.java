@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mis.model.User;
-import com.mis.service.UserService;
+import com.mis.model.*;
+import com.mis.service.*;
 
 @Controller
 public class UserController {
 
-	private static final Logger logger = Logger
-			.getLogger(UserController.class);
+	private static final Logger logger = Logger.getLogger(UserController.class);
 
 	public UserController() {
 		System.out.println("UserController");
@@ -30,13 +29,20 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/home")
+	public ModelAndView home(ModelAndView model) throws IOException 
+	{
+		model.setViewName("home");
+	
+		return model;
+	}
+	
+	@RequestMapping(value = "/listUser")
 	public ModelAndView listUser(ModelAndView model) throws IOException 
 	{
-		// Temporarily
 		List<User> listUser = userService.getAllUsers();
 		model.addObject("listUser", listUser);
-		model.setViewName("index");
+		model.setViewName("userManagement");
 	
 		return model;
 	}
@@ -53,18 +59,18 @@ public class UserController {
 		if(user == null)
 		{
 			msg = "Invalid credentials";
+			return new ModelAndView("result", "output", msg);
 		}
 		else //if(!user.getEmail().equalsIgnoreCase(null))
 		{
-			msg = "Welcome " + user.getEmail() + "!";
+			msg = "Welcome " + user.getEmail() + "!";	
+			return new ModelAndView("redirect:/home");
 		}
-
-
-		return new ModelAndView("result", "output", msg);
 	}	
 		
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
-	public ModelAndView newContact(ModelAndView model) {
+	public ModelAndView addUser(ModelAndView model) 
+	{
 		User user = new User();
 		model.addObject("user", user);
 		model.setViewName("userRegistration");
@@ -72,7 +78,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
-	public ModelAndView saveUser(@RequestParam("email")String email,
+	public ModelAndView saveUser(@RequestParam("id")String id,
+								@RequestParam("email")String email,
 								@RequestParam("password")String password,
 								@RequestParam("name")String name,
 								@RequestParam("phone")String phone
@@ -80,18 +87,39 @@ public class UserController {
 	{
 		String role = "Guest";
 		String msg = "Registered successfully";
-		User user = new User(name, email, password, phone, role);
-		
-//		if (user.getId() == 0) { 
+		 
+		if(id.equals("0"))
+		{
+			User user = new User(name, email, password, phone, role);
 			userService.addUser(user);
-			
-//		} else {
-//			userService.updateUser(user);  // later
-//		}
-//		return new ModelAndView("redirect:/");
-		return new ModelAndView("result", "output", msg);
+			return new ModelAndView("result", "output", msg);
+		}
+		else 
+		{ 
+			User user = new User(Integer.parseInt(id), name, email, password, phone, role);
+			userService.updateUser(user);  
+			return new ModelAndView("redirect:/listUser");
+		}
 	}
 
+    @RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
+    public ModelAndView deleteUser(HttpServletRequest request) 
+    {
+        int id = Integer.parseInt(request.getParameter("id"));
+        userService.deleteUser(id);
+        return new ModelAndView("redirect:/listUser");
+    }
 	
-		
+    
+    @RequestMapping(value = "/editUser", method = RequestMethod.GET)
+    public ModelAndView editUser(HttpServletRequest request) 
+    {
+        int userId = Integer.parseInt(request.getParameter("id"));
+        User user = userService.getUser(userId);
+        ModelAndView model = new ModelAndView("userRegistration");
+        model.addObject("user", user);
+ 
+        return model;
+    }
+ 
 }
