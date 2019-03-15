@@ -42,6 +42,7 @@ public class MovieController {
 	}	
 	
         //This is to list all the movies from database
+	//mapping
 	@RequestMapping(value = "/listMovie")
 	public ModelAndView listMovie(ModelAndView model) throws IOException 
 	{
