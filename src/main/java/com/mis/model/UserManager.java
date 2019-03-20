@@ -13,7 +13,7 @@ public class UserManager  extends Users
 		super(name);
 		this.type = USER_MGR;
 	}
-		
+	//getter and setter methods 	
 	public String getUserId() {
 		return userId;
 	}
