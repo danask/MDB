@@ -1,5 +1,5 @@
 /* Just for understanding the logic of database */
-
+/*create a user table*/
 /* User */
 CREATE TABLE `user` (
   id int(11) NOT NULL AUTO_INCREMENT,
