@@ -1,6 +1,3 @@
-/* Just for understanding the logic of database */
-/*create a user table*/
-/* User */
 CREATE TABLE `user` (
   id int(11) NOT NULL AUTO_INCREMENT,
   name varchar(50) NOT NULL,
@@ -11,8 +8,6 @@ CREATE TABLE `user` (
   PRIMARY KEY (id)
 );
 
-/* Movie */
-
 CREATE TABLE `movie` (
   id int(11) NOT NULL AUTO_INCREMENT,
   movieTitle varchar(50) NOT NULL,
@@ -22,11 +17,8 @@ CREATE TABLE `movie` (
   PRIMARY KEY (id)
 );
 
-/* Adding Data to User Table */
-/*Adding values into user */
 INSERT INTO `user` (id, name, email, password, phone, role) VALUES (1, 'daniel', 'admin@dc.com', 'admin1010', '555-777-9999', 'Administrator');
 
-/* Adding Data to Movie Table */
 INSERT INTO `movie` (id, movieTitle, movieArtist, description, year) VALUES (1, 'Titanic', 'James Cameron', 'Romance and drama', '1997');
 
 

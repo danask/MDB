@@ -15,4 +15,6 @@ public interface MovieService {
 	public Movie getMovie(int movieid);
 	
 	public Movie updateMovie(Movie movie);
+	
+	public Movie getMovie(String movieTitle, String movieArtist);
 }

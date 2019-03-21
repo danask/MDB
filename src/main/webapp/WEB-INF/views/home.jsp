@@ -79,7 +79,7 @@
 	
 		<br/><br/>
 	    <div class="container">
-	        <h3 id="form_header" align="center">Welcome to Movie Home</h3>
+	        <h3 id="form_header" align="center">Welcome to Movie Database Homepage</h3>
 	        <div>&nbsp;</div>
 	
 	 
@@ -118,10 +118,10 @@
 			<div class="container-fluid bg-grey">
 			  <div class="row">
 			    <div class="col-sm-8">
-			      <h2>Movie Information Management</h2>
-			      <h4>Seamless own database</h4>      
+			      <h2>Gotham Season 5</h2>
+			      <h4>It is just released. You can watch this now.</h4>      
 			      <p>This website store your record of movie, completely</p>
-			      <button class="btn btn-default btn-lg">Get in Touch</button>
+			      <button class="btn btn-default btn-lg" >Get in Touch</button>
 			    </div>
 			    <div class="col-sm-4">
 			      <span class="glyphicon glyphicon-signal logo">

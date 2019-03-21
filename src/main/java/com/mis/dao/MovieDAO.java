@@ -15,4 +15,6 @@ public interface MovieDAO {
 	public Movie updateMovie(Movie movie);
 
 	public Movie getMovie(int movieid);
+	
+	public Movie getMovie(String movieTitle, String movieArtist);
 }

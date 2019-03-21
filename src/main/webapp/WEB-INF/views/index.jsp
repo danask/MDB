@@ -75,7 +75,7 @@
 	   	    <div align="center"> 
 	        	<p>	Are you new here? Create a new account. <a href="addUser">here</a></p>
 	        </div>
-		</div>
+	    </div>
 
 
 	</body>

@@ -2,13 +2,10 @@ package com.mis.model;
 
 public class Guest extends Users implements UserFunction
 {
-        // declaration of variables
 	private String type;
 	private String searchMovieKeyword;
 	private String preferenceType;
 	
-	 //create methods
-	 
 	public Guest(String name) {
 		super(name);
 		this.type = GUEST;

@@ -34,13 +34,9 @@ public class MovieServiceImpl implements MovieService {
 		movieDAO.deleteMovie(movieId);
 	}
 
-	public Movie getMovie(int empid) {
-		return movieDAO.getMovie(empid);
+	public Movie getMovie(int id) {
+		return movieDAO.getMovie(id);
 	}
-
-//	public Movie getMovieByEmailPwd(String email, String pwd) {
-//		return movieDAO.getMovieByEmailPwd(email, pwd);
-//	}	
 	
 	public Movie updateMovie(Movie movie) {
 		// TODO Auto-generated method stub
@@ -51,4 +47,7 @@ public class MovieServiceImpl implements MovieService {
 		this.movieDAO = movieDAO;
 	}
 
+	public Movie getMovie(String movieTitle, String movieArtist) {
+		return movieDAO.getMovie(movieTitle, movieArtist);
+	}
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mis.model.Movie;
+import com.mis.model.User;
 
 @Repository
 public class MovieDAOImpl implements MovieDAO {
@@ -68,4 +69,24 @@ public class MovieDAOImpl implements MovieDAO {
 		return movie;
 	}
 
+	public Movie getMovie(String movieTitle, String movieArtist) 
+	{
+		List<Movie> movies = new ArrayList<Movie>();
+		
+		movies = sessionFactory.getCurrentSession()
+			.createQuery("from Movie where movieTitle=? and movieArtist=?")
+			.setParameter(0, movieTitle)
+			.setParameter(1, movieArtist)
+			.list();
+
+		if (movies.size() > 0) 
+		{
+			return movies.get(0);
+		} 
+		else 
+		{
+			return null;
+		}
+	}
+	
 }

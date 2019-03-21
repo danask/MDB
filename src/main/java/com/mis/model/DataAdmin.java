@@ -4,17 +4,15 @@ public class DataAdmin extends Users
 			implements UserFunction
 {
 	private String type;
-	
 	private boolean cleanUpDatabase;
 	private boolean isEmpty;
 	
-	// constructor 
+	// constructor
 	public DataAdmin(String name) {
 		super(name);
 		this.type = DBA;
 	}
-	 //methods and setter methods
-	 
+	
 	public boolean isCleanUpDatabase() {
 		return cleanUpDatabase;
 	}
