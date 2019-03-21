@@ -96,7 +96,7 @@ public class MovieController {
         int id = Integer.parseInt(request.getParameter("id"));
         movieService.deleteMovie(id);
         return new ModelAndView("redirect:/listMovie");
-    }
+    }//editing data in this code
     
     @RequestMapping(value = "/editMovie", method = RequestMethod.GET)
     public ModelAndView editMovie(HttpServletRequest request) 
