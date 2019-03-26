@@ -76,6 +76,7 @@ public class UserController {
 		model.setViewName("userRegistration");
 		return model;
 	}
+	//
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public ModelAndView saveUser(@RequestParam("id")String id,
