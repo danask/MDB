@@ -48,7 +48,7 @@ public class Movie
 		this.movieTitle = movieTitle;
 		System.out.println("Movie " + movieTitle + "has been created.");
 	}
-	
+	/* getter and setter methods*/
 	public int getId() {
 		return id;
 	}
