@@ -25,6 +25,7 @@ public class MovieController {
 	public MovieController() {
 		System.out.println("MovieController");
 	}
+	//comment
 
 	@Autowired
 	private MovieService movieService;
