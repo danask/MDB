@@ -25,3 +25,9 @@ Movie Database with add, delete, and search (CSIS 3275)
 ##	Introduction of MIS
 
 A movie information system or movie database (MIS or MDB) application. This web application is intended for clients who retrieve information about the film. By its specific role, each feature is implemented.
+
+##	Iteration1:
+
+This phase provides a diagram for the project layout design, a few module implementations, and hibernate in the Spring framework. Based on the Agile method, some requirements and features may be changing in progress for better and improved UX / UI design and project performance.
+
+
