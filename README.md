@@ -36,6 +36,9 @@ This phase provides a diagram for the project layout design, a few module implem
 -	Ankit Chutani: Documentation, DDL for Database, and Module Testing
 -	Twinklepreet Kaur: Documentation, Test, and Implementation of User Registration 
 
+###	Scope of Iteration1
+-	Product and features: Welcome Home Page with Menu, Login, and User Registration with Hibernate in SpringMVC
+-	Documentation: Detailed Use Cases, CRC Cards, Metrics and Measurement, Component Diagram, Hibernate for Persistence Layer, and GitHub for the Planning, Defects, and Issue Tracking
 
 
 
