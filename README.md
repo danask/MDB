@@ -44,3 +44,12 @@ This phase provides a diagram for the project layout design, a few module implem
 
 This phase provides a diagram for the project layout design, a few module implementations, and hibernates in the Spring framework. Based on the Agile method, some requirements and features may be changing in progress to improve and improve the UX / UI design and performance of the project.
 
+###	Group Dynamics
+
+-	Seongku (Daniel) Ahn: planning in Github, homepage GUI renewal, and code review as a leader
+-	Ankit Chutani: documentation, implementation for movie database (CRUD)
+-	Twinklepreet Kaur: documentation, test, and implementation of user list
+
+###	Scope of iteration2
+-	Product and features: movie list, movie registration, user list with Hibernate in SpringMVC
+-	Documentation: detailed use cases, CRC cards, metrics and measurement, component diagram, Hibernate for persistence layer, and Github for the planning, defects, and issue tracking
