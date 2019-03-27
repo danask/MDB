@@ -103,4 +103,15 @@ public class MovieController {
  
         return model;
     }
+		
+    @RequestMapping(value = "/updateMovie", method = RequestMethod.GET)
+    public ModelAndView editMovie(HttpServletRequest request) 
+    {
+        int movieId = Integer.parseInt(request.getParameter("id"));
+        Movie movie = movieService.getMovie(movieId);
+        ModelAndView model = new ModelAndView("movieManagement");
+        model.addObject("movie", movie);
+ 
+        return model;
+    }
 }
