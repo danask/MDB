@@ -28,6 +28,11 @@ public class Movie
 	
 	public Movie() {};
 	
+	public Movie(int id, String movieTitle) {
+		this.id = id;
+		this.movieTitle = movieTitle;
+	}
+	
 	public Movie(String movieTitle, String movieArtist, int year, String description) {
 		this.movieTitle = movieTitle;
 		this.movieArtist = movieArtist;
