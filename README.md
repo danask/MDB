@@ -30,4 +30,12 @@ A movie information system or movie database (MIS or MDB) application. This web 
 
 This phase provides a diagram for the project layout design, a few module implementations, and hibernate in the Spring framework. Based on the Agile method, some requirements and features may be changing in progress for better and improved UX / UI design and project performance.
 
+###	Group Dynamics
+
+-	Seongku (Daniel) Ahn: Planning in GitHub, Building the Environment with Login, and Code review as a Leader
+-	Ankit Chutani: Documentation, DDL for Database, and Module Testing
+-	Twinklepreet Kaur: Documentation, Test, and Implementation of User Registration 
+
+
+
 
