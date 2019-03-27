@@ -27,10 +27,10 @@
 		<br/><br/>	
 	
 		<div class="container">
-			<h3 id="output_header" class="text-success">Successfully processed</h3>
+			<h3 id="output_header" class="text-success">Failed to login</h3>
 			
 			<%-- <%= request.getAttribute("output") %> --%>
-			<p>	Go back to Home <a href="/home">here</a></p>
+			<p>	Go back to Home <a href="/">here</a></p>
 		</div>	    
 	</body>
 </html>

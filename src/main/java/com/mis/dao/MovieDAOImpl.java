@@ -69,14 +69,35 @@ public class MovieDAOImpl implements MovieDAO {
 		return movie;
 	}
 
-	public Movie getMovie(String movieTitle, String movieArtist) 
+	public List<Movie> getMovie(String movieTitle, String movieArtist) 
 	{
 		List<Movie> movies = new ArrayList<Movie>();
 		
 		movies = sessionFactory.getCurrentSession()
-			.createQuery("from Movie where movieTitle=? and movieArtist=?")
+			.createQuery("from Movie where movieTitle=? or movieArtist=?")
 			.setParameter(0, movieTitle)
 			.setParameter(1, movieArtist)
+			.list();
+
+		if (movies.size() > 0) 
+		{
+			return movies;
+		} 
+		else 
+		{
+			return null;
+		}
+	}
+
+	public Movie getMovieWithParams(String movieTitle, String movieArtist, int year)
+	{
+		List<Movie> movies = new ArrayList<Movie>();
+		
+		movies = sessionFactory.getCurrentSession()
+			.createQuery("from Movie where movieTitle=? or movieArtist=? or year=?")
+			.setParameter(0, movieTitle)
+			.setParameter(1, movieArtist)
+			.setParameter(2, year)
 			.list();
 
 		if (movies.size() > 0) 
@@ -87,6 +108,6 @@ public class MovieDAOImpl implements MovieDAO {
 		{
 			return null;
 		}
-	}
+	}	
 	
 }

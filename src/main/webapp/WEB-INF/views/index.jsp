@@ -27,27 +27,6 @@
 		  </button>
 		  <div class="collapse navbar-collapse" id="navbarNav">
 		    <ul class="navbar-nav">
-<!-- 		      <li class="nav-item active">
-		        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-		      </li>
-			  <li class="nav-item">
-		        <a class="nav-link" href="listMovie">Movie List</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="addMovie">Movie Registration</a>
-		      </li>     
-		      <li class="nav-item">
-		        <a class="nav-link" href="addUser">User Registration</a>
-		      </li>	
-		      <li class="nav-item">
-		        <a class="nav-link" href="listUser">User List</a>
-		      </li>	 		       		        
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">Admin</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="/">Log out</a>
-		      </li> -->
 		    </ul>
 		  </div>
 		</nav>

@@ -16,5 +16,7 @@ public interface MovieDAO {
 
 	public Movie getMovie(int movieid);
 	
-	public Movie getMovie(String movieTitle, String movieArtist);
+	public List<Movie> getMovie(String movieTitle, String movieArtist);
+	
+	public Movie getMovieWithParams(String movieTitle, String movieArtist, int year);
 }

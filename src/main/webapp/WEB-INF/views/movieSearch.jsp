@@ -6,10 +6,16 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>	    
-	    <title>User Login</title>
+	    <title>Movie Search</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	    <style>
+	    	#description {
+			  width: 100%;
+			  height: 5em;
+			  padding: 12px 20px;
+
+			}
 	    	li:nth-of-type(4){margin-left: 25em;}
 		</style>
 	
@@ -25,11 +31,13 @@
 <!-- 		      <li class="nav-item active">
 		        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
 		      </li> -->
-			<li class="nav-item">
-			  <a class="nav-link" href="searchMovie">Search</a>
-			</li> 
-			   
-  			   <%if(role.equals("Movie Database Administrator")	|| role.equals("Administrator")){%>
+		      
+   				  <li class="nav-item">
+			        <a class="nav-link" href="searchMovie">Search</a>
+			      </li>   		      
+		      
+   			   <%if(role.equals("Movie Database Administrator")	|| role.equals("Administrator")){%>
+
 				  <li class="nav-item">
 			        <a class="nav-link" href="listMovie">Movie List</a>
 			      </li>   			   
@@ -37,8 +45,7 @@
 			        <a class="nav-link" href="addMovie">Movie Database</a>
 			      </li>  
 		       <%}%>
-		       
-			       			         
+		       			         
 		      <li class="nav-item">
 		        <a class="nav-link" href="addUser">User Registration</a>
 		      </li>	
@@ -54,7 +61,7 @@
 			        <a class="nav-link" href="listUser">Users</a>
 			      </li>	 
 			   <%}%>
-			   
+		       		        
 		      <li class="nav-item">
 		        <a class="nav-link" href="/">Log out</a>
 		      </li>
@@ -65,49 +72,37 @@
 
 		<br/><br/>
 	    <div class="container">
-	        <h3 id="form_header" align="center">User Registration</h3>
-	        <div>&nbsp;</div>
-	
-        	<c:url var="saveUserUrl" value="/saveUser" />
- 	        <form id="user_form" action="${saveUserUrl}" method="POST">
-	     <!--    <form:form action="saveUser" method="post" modelAttribute="user">
-	         <div class="form-group"><label for="name">User Name:</label>
-	        <form:input path="name" /> 
-	        </div>-->
-
-			   <input type="hidden" name="id" value='${user.id}'/>
+	        <h3 id="form_header" align="center">Movie Database</h3>
+	        <br/>
+	        <div><h5>Please enter a movie title or artist name which you want to find.</h5></div>
+			<br/>
+	        <c:url var="searchMovieResultUrl" value="/searchMovieResult" />
+	        <form id="movie_form" action="${searchMovieResultUrl}" method="POST">
+	        <!-- <form:form action="saveMovie" method="post" modelAttribute="movie"> -->
+	         <!-- <form action="saveMovie" th:action="@{/saveMovie}" th:object="${movie}" method="post"> -->
+	         
+	           <input type="hidden" name="id" value='${movie.id}'/>
                <div class="form-group">
-	                <label for="name">User Name:</label>
-	                <input type="text" class="form-control" id="name" placeholder="Enter username" name="name" 
-	                value='${user.name}' required/>
+	                <label for="movieTitle">Movie Title:</label>
+	                <input type="text" class="form-control" id="movieTitle" placeholder="Enter movie title" 
+	                name="movieTitle" value='${movie.movieTitle}' />
 	            </div>
 	            <div class="form-group">
-	                <label for="pwd">Password:</label>
-	                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" 
-	                value='${user.password}'required>
+	                <label for="movieArtist">Artist:</label>
+	                <input type="text" class="form-control" id="movieArtist" placeholder="Enter the name of artist" 
+	                name="movieArtist" value='${movie.movieArtist}' />
 	            </div>
-	            <div class="form-group">
-	                <label for="name">Email Address (ID):</label>
-	                <input type="text" class="form-control" id="email" placeholder="Enter email address" name="email" 
-	                value='${user.email}'required>
-	            </div>
-	            <div class="form-group">
-	                <label for="pwd">Phone Number:</label>
-	                <input type="text" class="form-control" id="phone" placeholder="Enter telephone number" name="phone" 
-	                value='${user.phone}'required>
-	            </div>
-	            <div class="form-group">
-	                <label for="name">Role:</label>
-	                <input type="text" class="form-control" id="role" placeholder="Guest" name="role" 
-	                value='${user.role}'disabled>
-	            </div>  
-	            
-	            
-	              
+	 <%--            <div class="form-group">
+	                <label for="year">Year:</label>
+	                <input type="number" class="form-control" id="year" placeholder="Enter released year" 
+	                name="year" value='${movie.year}' min="1950" max="2050">
+	            </div> --%>
+	         
 	            <div align="center">       	            
-	            	<button id="confirm_user" type="submit" class="btn btn-dark">Save</button>
-	            </div>  
+	            	<button id="confirm_movie" type="submit" class="btn btn-dark">search</button>
+	            </div> 
 	        </form>
 	    </div>
-	</body>
+
+</body>
 </html>

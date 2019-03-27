@@ -16,5 +16,7 @@ public interface MovieService {
 	
 	public Movie updateMovie(Movie movie);
 	
-	public Movie getMovie(String movieTitle, String movieArtist);
+	public List<Movie> getMovie(String movieTitle, String movieArtist);
+	
+	public Movie getMovieWithParams(String movieTitle, String movieArtist, int year);
 }

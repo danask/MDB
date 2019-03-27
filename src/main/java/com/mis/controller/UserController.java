@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mis.model.*;
 import com.mis.service.*;
 
 @Controller
+@SessionAttributes("User")
 public class UserController {
 
 	private static final Logger logger = Logger.getLogger(UserController.class);
@@ -29,52 +31,29 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/home")
-	public ModelAndView home(ModelAndView model) throws IOException 
-	{
-		model.setViewName("home");
-	
-		return model;
-	}
+
 	
 	@RequestMapping(value = "/listUser")
-	public ModelAndView listUser(ModelAndView model) throws IOException 
+	public ModelAndView listUser(ModelAndView model, @ModelAttribute("User") User userSession) throws IOException 
 	{
 		List<User> listUser = userService.getAllUsers();
-		model.addObject("listUser", listUser);
-		model.setViewName("userManagement");
+		ModelAndView mv = new ModelAndView("userManagement","sessionInfo", userSession.getRole());
+		mv.addObject("listUser", listUser);
 	
-		return model;
+		return mv;
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView loginUser(@RequestParam("email")String email,
-								@RequestParam("password")String password) 
-										throws IOException 
-	{
-		String msg = "";
-		
-		User user = userService.getUserByEmailPwd(email, password);
-		
-		if(user == null)
-		{
-			msg = "Invalid credentials";
-			return new ModelAndView("result", "output", msg);
-		}
-		else //if(!user.getEmail().equalsIgnoreCase(null))
-		{
-			msg = "Welcome " + user.getEmail() + "!";	
-			return new ModelAndView("redirect:/home");
-		}
-	}	
+
 		
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
-	public ModelAndView addUser(ModelAndView model) 
+	public ModelAndView addUser(ModelAndView model, @ModelAttribute("User") User userSession) 
 	{
 		User user = new User();
-		model.addObject("user", user);
-		model.setViewName("userRegistration");
-		return model;
+		
+		ModelAndView mv = new ModelAndView("userRegistration","sessionInfo", userSession.getRole());
+		mv.addObject("user", user);
+		
+		return mv;
 	}
 	//
 
@@ -83,43 +62,43 @@ public class UserController {
 								@RequestParam("email")String email,
 								@RequestParam("password")String password,
 								@RequestParam("name")String name,
-								@RequestParam("phone")String phone
+								@RequestParam("phone")String phone,
+								@ModelAttribute("User") User userSession
 								) 
 	{
-		String role = "Guest";
-		String msg = "Registered successfully";
+		String role = "Guest";  // default
 		 
 		if(id.equals("0"))
 		{
 			User user = new User(name, email, password, phone, role);
 			userService.addUser(user);
-			return new ModelAndView("result", "output", msg);
+			return new ModelAndView("result", "sessionInfo", userSession.getRole());
 		}
 		else 
 		{ 
 			User user = new User(Integer.parseInt(id), name, email, password, phone, role);
 			userService.updateUser(user);  
-			return new ModelAndView("redirect:/listUser");
+			return new ModelAndView("redirect:/listUser", "sessionInfo", userSession.getRole());
 		}
 	}
 
     @RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
-    public ModelAndView deleteUser(HttpServletRequest request) 
+    public ModelAndView deleteUser(HttpServletRequest request, @ModelAttribute("User") User userSession) 
     {
         int id = Integer.parseInt(request.getParameter("id"));
         userService.deleteUser(id);
-        return new ModelAndView("redirect:/listUser");
+        return new ModelAndView("redirect:/listUser", "sessionInfo", userSession.getRole());
     }
 	
     
     @RequestMapping(value = "/editUser", method = RequestMethod.GET)
-    public ModelAndView editUser(HttpServletRequest request) 
+    public ModelAndView editUser(HttpServletRequest request, @ModelAttribute("User") User userSession) 
     {
         int userId = Integer.parseInt(request.getParameter("id"));
         User user = userService.getUser(userId);
-        ModelAndView model = new ModelAndView("userRegistration");
+        ModelAndView model = new ModelAndView("userRegistration","sessionInfo", userSession.getRole());
         model.addObject("user", user);
- 
+
         return model;
     }
  

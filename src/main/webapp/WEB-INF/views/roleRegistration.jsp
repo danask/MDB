@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<% String role = (String)request.getAttribute("sessionInfo"); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>	    
-	    <title>User Login</title>
+	    <title>Role</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	    <style>
@@ -27,34 +26,23 @@
 		      </li> -->
 			<li class="nav-item">
 			  <a class="nav-link" href="searchMovie">Search</a>
-			</li> 
-			   
-  			   <%if(role.equals("Movie Database Administrator")	|| role.equals("Administrator")){%>
-				  <li class="nav-item">
-			        <a class="nav-link" href="listMovie">Movie List</a>
-			      </li>   			   
-			      <li class="nav-item">
-			        <a class="nav-link" href="addMovie">Movie Database</a>
-			      </li>  
-		       <%}%>
-		       
-			       			         
+			</li> 		      
+			  <li class="nav-item">
+		        <a class="nav-link" href="listMovie">Movie List</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="addMovie">Movie Database</a>
+		      </li>     
 		      <li class="nav-item">
 		        <a class="nav-link" href="addUser">User Registration</a>
 		      </li>	
-		       		
-			   <%if(role.equals("Administrator")){%>
-		      	  <li class="nav-item">
-			        <a class="nav-link" href="listRole">Admin</a>
-			      </li>
-		       <%}%>
-			   
-			   <%if(role.equals("User Manager")	|| role.equals("Administrator")){%>			   
-			      <li class="nav-item">
-			        <a class="nav-link" href="listUser">Users</a>
-			      </li>	 
-			   <%}%>
-			   
+		       		        
+		      <li class="nav-item">
+		        <a class="nav-link" href="listRole">Admin</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="listUser">Users</a>
+		      </li>	 
 		      <li class="nav-item">
 		        <a class="nav-link" href="/">Log out</a>
 		      </li>
@@ -65,49 +53,46 @@
 
 		<br/><br/>
 	    <div class="container">
-	        <h3 id="form_header" align="center">User Registration</h3>
+	        <h3 id="form_header" align="center">Role Registration</h3>
 	        <div>&nbsp;</div>
 	
-        	<c:url var="saveUserUrl" value="/saveUser" />
- 	        <form id="user_form" action="${saveUserUrl}" method="POST">
+        	<c:url var="saveRoleUrl" value="/saveRole" />
+ 	        <form id="user_form" action="${saveRoleUrl}" method="POST">
 	     <!--    <form:form action="saveUser" method="post" modelAttribute="user">
 	         <div class="form-group"><label for="name">User Name:</label>
 	        <form:input path="name" /> 
 	        </div>-->
 
 			   <input type="hidden" name="id" value='${user.id}'/>
+			   <input type="hidden" name="name" value='${user.name}'/>
+			   <input type="hidden" name="email" value='${user.email}'/>			   
+			   <input type="hidden" name="password" value='${user.password}'/>
+			   <input type="hidden" name="phone" value='${user.phone}'/>
                <div class="form-group">
 	                <label for="name">User Name:</label>
 	                <input type="text" class="form-control" id="name" placeholder="Enter username" name="name" 
-	                value='${user.name}' required/>
-	            </div>
-	            <div class="form-group">
-	                <label for="pwd">Password:</label>
-	                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" 
-	                value='${user.password}'required>
+	                value='${user.name}' disabled/>
 	            </div>
 	            <div class="form-group">
 	                <label for="name">Email Address (ID):</label>
 	                <input type="text" class="form-control" id="email" placeholder="Enter email address" name="email" 
-	                value='${user.email}'required>
-	            </div>
-	            <div class="form-group">
-	                <label for="pwd">Phone Number:</label>
-	                <input type="text" class="form-control" id="phone" placeholder="Enter telephone number" name="phone" 
-	                value='${user.phone}'required>
+	                value='${user.email}'disabled>
 	            </div>
 	            <div class="form-group">
 	                <label for="name">Role:</label>
-	                <input type="text" class="form-control" id="role" placeholder="Guest" name="role" 
-	                value='${user.role}'disabled>
+					<select name="role" class="form-control" id="role"  size="4" required>
+						<option value="Guest" ${user.role == "Guest" ? "selected" : ""}>Guest</option>
+						<option value="User Manager" ${user.role == "UserManager" ? "selected" : ""}>User Manager</option>
+						<option value="Movie Database Administrator" ${user.role == "MovieManager" ? "selected" : ""}>Movie Database Administrator</option>
+						<option value="Administrator" ${user.role == "Admin" ? "selected" : ""}>Administrator</option> 						
+					</select>               
 	            </div>  
-	            
-	            
-	              
+        		<!-- <input type="hidden" name="role" value="Admin"/> -->
+        		
 	            <div align="center">       	            
-	            	<button id="confirm_user" type="submit" class="btn btn-dark">Save</button>
-	            </div>  
-	        </form>
+	            	<button id="confirm_user" type="submit" class="btn btn-dark">Apply</button>
+	            </div>
+            </form>  
 	    </div>
 	</body>
 </html>

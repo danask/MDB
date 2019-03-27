@@ -47,7 +47,11 @@ public class MovieServiceImpl implements MovieService {
 		this.movieDAO = movieDAO;
 	}
 
-	public Movie getMovie(String movieTitle, String movieArtist) {
+	public List<Movie> getMovie(String movieTitle, String movieArtist) {
 		return movieDAO.getMovie(movieTitle, movieArtist);
+	}
+	
+	public Movie getMovieWithParams(String movieTitle, String movieArtist, int year) {
+		return movieDAO.getMovieWithParams(movieTitle, movieArtist, year);
 	}
 }

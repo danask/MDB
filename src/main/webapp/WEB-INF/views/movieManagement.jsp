@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<% String role = (String)request.getAttribute("sessionInfo"); %>
 
 <html>
 <head>
@@ -32,22 +33,36 @@
 <!-- 		      <li class="nav-item active">
 		        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
 		      </li> -->
-			  <li class="nav-item">
-		        <a class="nav-link" href="listMovie">Movie List</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="addMovie">Movie Database</a>
-		      </li>     
+					<li class="nav-item">
+					  <a class="nav-link" href="searchMovie">Search</a>
+					</li> 			      
+		      
+   			   <%if(role.equals("Movie Database Administrator")	|| role.equals("Administrator")){%>
+   			   
+				  <li class="nav-item">
+			        <a class="nav-link" href="listMovie">Movie List</a>
+			      </li>   			   
+			      <li class="nav-item">
+			        <a class="nav-link" href="addMovie">Movie Database</a>
+			      </li>  
+		       <%}%>
+	       			         
 		      <li class="nav-item">
 		        <a class="nav-link" href="addUser">User Registration</a>
 		      </li>	
+		       		
+			   <%if(role.equals("Administrator")){%>
+		      	  <li class="nav-item">
+			        <a class="nav-link" href="listRole">Admin</a>
+			      </li>
+		       <%}%>
+			   
+			   <%if(role.equals("User Manager")	|| role.equals("Administrator")){%>			   
+			      <li class="nav-item">
+			        <a class="nav-link" href="listUser">Users</a>
+			      </li>	 
+			   <%}%>
 		       		        
-		      <li class="nav-item">
-		        <a class="nav-link" href="#">Admin</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="listUser">Users</a>
-		      </li>	 
 		      <li class="nav-item">
 		        <a class="nav-link" href="/">Log out</a>
 		      </li>
