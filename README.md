@@ -40,5 +40,7 @@ This phase provides a diagram for the project layout design, a few module implem
 -	Product and features: Welcome Home Page with Menu, Login, and User Registration with Hibernate in SpringMVC
 -	Documentation: Detailed Use Cases, CRC Cards, Metrics and Measurement, Component Diagram, Hibernate for Persistence Layer, and GitHub for the Planning, Defects, and Issue Tracking
 
+##	Iteration2:
 
+This phase provides a diagram for the project layout design, a few module implementations, and hibernates in the Spring framework. Based on the Agile method, some requirements and features may be changing in progress to improve and improve the UX / UI design and performance of the project.
 
