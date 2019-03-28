@@ -93,8 +93,8 @@ public class MovieTest {
 				movieService.addMovie(testMovie[i]);
 				
 				// check the result
-				Movie movie = movieService.getMovie(testMovie[i].getMovieTitle(), testMovie[i].getMovieArtist());
-				assertThat(movie.getMovieTitle(), equalTo(testMovie[i].getMovieTitle()));
+				List<Movie> movie = (List<Movie>) movieService.getMovie(testMovie[i].getMovieTitle(), testMovie[i].getMovieArtist());
+				assertThat(movie.get(0).getMovieTitle(), equalTo(testMovie[i].getMovieTitle()));
 			}
 			catch(Exception e)
 			{
@@ -109,11 +109,11 @@ public class MovieTest {
 		for(int i = 0; i < TEST_COUNT; i++)
 		{
 			try {
-				Movie movie = movieService.getMovie(testMovie[i].getMovieTitle(), testMovie[i].getMovieArtist());
-				assertThat(movie.getMovieTitle(), equalTo(testMovie[i].getMovieTitle()));
-				movie.setYear(2999);
+				List<Movie> movie = (List<Movie>) movieService.getMovie(testMovie[i].getMovieTitle(), testMovie[i].getMovieArtist());
+				assertThat(movie.get(0).getMovieTitle(), equalTo(testMovie[i].getMovieTitle()));
+				movie.get(0).setYear(2999);
 				
-				movieService.updateMovie(movie);
+				movieService.updateMovie(movie.get(0));
 			}
 			catch(Exception e)
 			{
@@ -128,12 +128,12 @@ public class MovieTest {
 		for(int i = 0; i < TEST_COUNT; i++)
 		{
 			try {
-				Movie movie = movieService.getMovie(testMovie[i].getMovieTitle(), testMovie[i].getMovieArtist());
-				assertThat(movie.getMovieTitle(), equalTo(testMovie[i].getMovieTitle()));
+				List<Movie> movie = (List<Movie>)movieService.getMovie(testMovie[i].getMovieTitle(), testMovie[i].getMovieArtist());
+				assertThat(movie.get(0).getMovieTitle(), equalTo(testMovie[i].getMovieTitle()));
 
 				// check id to delete
-				assertThat(movie.getId(), notNullValue());
-				movieService.deleteMovie(movie.getId());
+				assertThat(movie.get(0).getId(), notNullValue());
+				movieService.deleteMovie(movie.get(0).getId());
 			}
 			catch(Exception e)
 			{
