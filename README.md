@@ -53,3 +53,18 @@ This phase provides a diagram for the project layout design, a few module implem
 ###	Scope of iteration2
 -	Product and features: movie list, movie registration, user list with Hibernate in SpringMVC
 -	Documentation: detailed use cases, CRC cards, metrics and measurement, component diagram, Hibernate for persistence layer, and Github for the planning, defects, and issue tracking
+
+##	Iteration3:
+
+This phase provides the layout design of project with diagram, a couple of module implementations, and tests using JUnit. 
+
+###	Group Dynamics
+
+-	Seongku (Daniel) Ahn: planning in Github, Role management, and code review as a leader
+-	Ankit Chutani: documentation, implementation for movie search
+-	Twinklepreet Kaur: documentation, test, and debugging
+
+###	Scope of iteration3
+-	Product and features: movie search and role management with JUnit in SpringMVC
+-	Documentation: detailed use cases, CRC cards, metrics and measurement, component/sequence diagram, Hibernate for persistence layer, unit test with JUnit and Github for the planning, defects, and issue tracking
+
