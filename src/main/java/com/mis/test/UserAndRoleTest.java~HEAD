@@ -26,7 +26,7 @@ import com.mis.service.UserService;
 //@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/*.xml"})
 @ContextConfiguration (locations = {"file:src/main/webapp/WEB-INF/spring-servlet.xml"})
 
-public class UserTest {
+public class UserAndRoleTest {
 	
 	@Autowired
 	private UserController userController;

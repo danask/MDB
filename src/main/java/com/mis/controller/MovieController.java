@@ -92,8 +92,7 @@ public class MovieController {
 		{
 			Movie movie = new Movie(movieTitle, movieArtist, year, description);
 			movieService.addMovie(movie);
-			
-			return new ModelAndView("result", "sessionInfo", userSession.getRole());
+			return new ModelAndView("fail", "sessionInfo", userSession.getRole());
 		}
 		else 
 		{ 
