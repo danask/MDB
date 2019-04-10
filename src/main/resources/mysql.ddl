@@ -16,7 +16,7 @@ CREATE TABLE `movie` (
   year int(4) NOT NULL,
   PRIMARY KEY (id)
 );
-/* insert values in the columns*/
+
 INSERT INTO `user` (id, name, email, password, phone, role) VALUES (1, 'daniel', 'admin@dc.com', 'admin1010', '555-777-9999', 'Administrator');
 
 INSERT INTO `movie` (id, movieTitle, movieArtist, description, year) VALUES (1, 'Titanic', 'James Cameron', 'Romance and drama', '1997');

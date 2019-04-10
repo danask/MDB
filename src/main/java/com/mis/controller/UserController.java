@@ -55,7 +55,6 @@ public class UserController {
 		
 		return mv;
 	}
-	//
 
 	@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 	public ModelAndView saveUser(@RequestParam("id")String id,

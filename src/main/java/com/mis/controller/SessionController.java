@@ -40,6 +40,10 @@ public class SessionController {
 	@RequestMapping(value = "/")
 	public ModelAndView index(ModelAndView model, @ModelAttribute("User") User userSession) throws IOException 
 	{
+		userSession.setName("");
+		userSession.setRole("");
+		System.out.println("Welcome " + userSession.getEmail() + " / " + userSession.getRole()  + "!");	
+		
 		return new ModelAndView("index","sessionInfo", userSession.getRole());
 	}
    

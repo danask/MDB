@@ -1,4 +1,4 @@
-package com.mis.test;
+package com.mis.test.integration;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;

@@ -27,7 +27,7 @@
 		<br/><br/>	
 	
 		<div class="container">
-			<h3 id="output_header" class="text-success">Failed to login</h3>
+			<h3 id="output_header" class="text-success">Failed to proceed</h3>
 			
 			<%-- <%= request.getAttribute("output") %> --%>
 			<p>	Go back to Home <a href="/">here</a></p>
